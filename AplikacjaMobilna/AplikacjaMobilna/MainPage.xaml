@@ -5,10 +5,10 @@
 
     <StackLayout Margin="20">
         <Label Text="Właściwości czcionki" BackgroundColor="#558B2F" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
-        <Label Text="Rozmiar:" FontSize="Medium"/>
-        <Slider Minimum="0" Maximum="40"/>
-        <Label Text="Cytat"/>
-        <Button Text=">>>" HorizontalOptions="Center" BackgroundColor="#558B2F" TextColor="White" FontAttributes="Bold"/>
+        <Label Text="{Binding Source={x:Reference sizeSlider}, Path=Value, StringFormat='Rozmiar: {0:F0}'}" FontSize="Medium"/>
+        <Slider x:Name="sizeSlider"  Maximum="40" />
+        <Label x:Name="quote" Text="Cytat" FontSize="{Binding Source={x:Reference sizeSlider}, Path=Value}"/>
+        <Button Text=">>>" HorizontalOptions="Center" BackgroundColor="#558B2F" TextColor="White" FontAttributes="Bold" Clicked="ChangeQuoteClick"/>
     </StackLayout>
 
 </ContentPage>
